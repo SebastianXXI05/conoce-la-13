@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header {
+    --header-text-color: rgb(255, 255, 255);
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.575);
+}
+
+.header::before {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    background-image: url('../imagenes/medellin.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.header__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__title {
+    color: var(--header-text-color);
+    margin: 1.5em 0 0.7em;
+    font-size: calc(6em - 1vw);
+    animation-duration: 2s;
+    animation-name: move;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes move {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-0.1em);
+        color: rgb(181, 234, 238);
+    }
+}
+
+.header__description {
+    color: var(--header-text-color);
+    margin-bottom: 2em;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.button {
+    text-decoration: none;
+    color: var(--header-text-color);
+    border: 3px solid rgb(255, 255, 255);
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-size: 1.2em;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.button:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: -2;
+    transition: 0.3s ease-in-out;
+}
+
+.button:hover {
+    color: rgb(67, 122, 126);
+    font-weight: bold;
+}
+.button:hover::before {
+    left: 0;
+}
+
+@media (min-width: 954px) {
+    .header__title {
+        font-size: calc(7em + 1vw);
+        margin-bottom: 0.5em;
+    }
+
+    .header__description {
+        margin-bottom: 2.5em;
+    }
+}
